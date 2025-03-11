@@ -1,0 +1,32 @@
+{
+  "name": "cssngx",
+  "version": "0.1.0",
+  "description": "A modern, minimalist atomic CSS engine similar to UnoCSS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "css",
+    "atomic-css",
+    "utility-css",
+    "cssngx"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "eslint": "^8.56.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  },
+  "dependencies": {
+    "magic-string": "^0.30.5"
+  }
+}

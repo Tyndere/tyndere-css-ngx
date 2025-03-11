@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSSngx Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module">
+    import { createGenerator, presetDefault } from '../dist/index.mjs';
+    
+
+    const generator = createGenerator({
+      presets: [presetDefault],
+    });
+    
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const { css } = await generator.generate(document.documentElement.outerHTML);
+
+        const styleEl = document.createElement('style');
+        styleEl.textContent = css;
+        document.head.appendChild(styleEl);
+        console.log('CSS generated and applied:', css);
+      } catch (err) {
+        console.error('Error generating CSS:', err);
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 font-sans">
+
+  <header class="bg-blue-600 text-white p-4 sticky">
+    <div class="flex justify-between items-center max-w-6xl mx-auto">
+      <h1 class="text-xl font-bold">CSSngx Demo</h1>
+      <nav>
+        <ul class="flex gap-4">
+          <li><a href="#features" class="text-white no-underline hover-underline">Features</a></li>
+          <li><a href="#components" class="text-white no-underline hover-underline">Components</a></li>
+          <li><a href="#utilities" class="text-white no-underline hover-underline">Utilities</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="bg-blue-500 text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Modern Atomic CSS with CSSngx</h2>
+      <p class="text-lg mb-8">A lightweight, utility-first CSS framework for building modern interfaces</p>
+      <button class="bg-white text-blue-600 px-6 py-2 rounded-md font-medium hover-bg-blue-50">Get Started</button>
+    </div>
+  </section>
+
+
+  <main class="max-w-6xl mx-auto p-4">
+
+    <section id="features" class="py-12">
+      <h2 class="text-2xl font-bold mb-8 text-center">Key Features</h2>
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Atomic CSS Utilities</h3>
+          <p class="text-gray-700">Generate CSS on-demand from utility classes for rapid development</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Modern & Minimalist</h3>
+          <p class="text-gray-700">Clean, modern design aesthetic with a minimalist approach</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Highly Customizable</h3>
+          <p class="text-gray-700">Extend with your own rules and themes for complete flexibility</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="components" class="py-12 bg-gray-50 p-6 rounded-lg">
+      <h2 class="text-2xl font-bold mb-8 text-center">Component Examples</h2>
+      
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Buttons</h3>
+        <div class="flex gap-4 flex-wrap">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded">Primary</button>
+          <button class="bg-gray-600 text-white px-4 py-2 rounded">Secondary</button>
+          <button class="bg-green-600 text-white px-4 py-2 rounded">Success</button>
+          <button class="bg-red-600 text-white px-4 py-2 rounded">Danger</button>
+          <button class="bg-yellow-500 text-white px-4 py-2 rounded">Warning</button>
+        </div>
+      </div>
+      
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Cards</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h4 class="font-bold mb-2">Card Title</h4>
+            <p class="text-gray-700 mb-4">This is a simple card component built with CSSngx utility classes.</p>
+            <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Learn More</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h4 class="font-bold mb-2">Card Title</h4>
+            <p class="text-gray-700 mb-4">This is another card component with the same styling.</p>
+            <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      
+
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Form Elements</h3>
+        <form class="bg-white p-6 rounded-lg shadow-md">
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="name">Name</label>
+            <input type="text" id="name" class="border border-gray-300 rounded px-3 py-2 w-full" placeholder="John Doe">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="email">Email</label>
+            <input type="email" id="email" class="border border-gray-300 rounded px-3 py-2 w-full" placeholder="john@example.com">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="message">Message</label>
+            <textarea id="message" class="border border-gray-300 rounded px-3 py-2 w-full h-32" placeholder="Your message here"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+        </form>
+      </div>
+    </section>
+
+
+    <section id="utilities" class="py-12">
+      <h2 class="text-2xl font-bold mb-8 text-center">Utility Classes</h2>
+      
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Typography</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="text-xs mb-2">text-xs: Extra small text</p>
+          <p class="text-sm mb-2">text-sm: Small text</p>
+          <p class="text-base mb-2">text-base: Base text size</p>
+          <p class="text-lg mb-2">text-lg: Large text</p>
+          <p class="text-xl mb-2">text-xl: Extra large text</p>
+          <p class="text-2xl mb-2">text-2xl: 2X large text</p>
+          <p class="font-bold mb-2">font-bold: Bold text</p>
+          <p class="font-light mb-2">font-light: Light text</p>
+          <p class="italic mb-2">italic: Italic text</p>
+          <p class="underline mb-2">underline: Underlined text</p>
+        </div>
+      </div>
+      
+
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Colors</h3>
+        <div class="grid grid-cols-4 gap-4">
+          <div class="p-4 bg-blue-500 text-white rounded">bg-blue-500</div>
+          <div class="p-4 bg-green-500 text-white rounded">bg-green-500</div>
+          <div class="p-4 bg-red-500 text-white rounded">bg-red-500</div>
+          <div class="p-4 bg-yellow-500 text-white rounded">bg-yellow-500</div>
+          <div class="p-4 bg-purple-500 text-white rounded">bg-purple-500</div>
+          <div class="p-4 bg-gray-500 text-white rounded">bg-gray-500</div>
+          <div class="p-4 bg-pink-500 text-white rounded">bg-pink-500</div>
+          <div class="p-4 bg-indigo-500 text-white rounded">bg-indigo-500</div>
+        </div>
+      </div>
+      
+
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Spacing</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="mb-4">
+            <p class="mb-2">Margin Examples:</p>
+            <div class="flex gap-4">
+              <div class="bg-blue-200 p-2 m-1">m-1</div>
+              <div class="bg-blue-200 p-2 m-2">m-2</div>
+              <div class="bg-blue-200 p-2 m-4">m-4</div>
+            </div>
+          </div>
+          <div>
+            <p class="mb-2">Padding Examples:</p>
+            <div class="flex gap-4">
+              <div class="bg-green-200 p-1">p-1</div>
+              <div class="bg-green-200 p-2">p-2</div>
+              <div class="bg-green-200 p-4">p-4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="bg-gray-800 text-white p-6 mt-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">CSSngx</h3>
+          <p>A modern, minimalist atomic CSS engine similar to UnoCSS.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Links</h3>
+          <ul>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">Documentation</a></li>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">GitHub</a></li>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">Examples</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Community</h3>
+          <ul>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">Twitter</a></li>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">Discord</a></li>
+            <li class="mb-2"><a href="#" class="text-gray-300 hover-text-white">Stack Overflow</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+        <p>&copy; 2025 Tyndere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
